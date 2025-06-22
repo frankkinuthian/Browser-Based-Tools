@@ -1,8 +1,13 @@
 # Thio's Browser-Based Tools
-Various utilities and tools that run locally right in your browser
+Various utilities and tools that run locally right in your browser.
 
 ### How to Download
 <p align="center"><img width="500" alt="image" src="https://github.com/user-attachments/assets/a2f8c398-664d-4b89-81e8-d5ffc9e8d472" /></p>
+
+### Or use and bookmark the tools online
+Access the tools online via the links on this page: [ThioJoe.GitHub.io/Browser-Based-Tools](https://thiojoe.github.io/Browser-Based-Tools/)
+
+-------------
 
 
 ## [Unicode Inspector](Tools/Unicode%20Inspector/Unicode%20Inspector.html)
