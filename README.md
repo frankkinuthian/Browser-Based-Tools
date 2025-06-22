@@ -5,7 +5,7 @@ Various utilities and tools that run locally right in your browser
 <p align="center"><img width="500" alt="image" src="https://github.com/user-attachments/assets/a2f8c398-664d-4b89-81e8-d5ffc9e8d472" /></p>
 
 
-## [Unicode Inspector](Tools/Unicode%20Inspector)
+## [Unicode Inspector](Tools/Unicode%20Inspector/Unicode%20Inspector.html)
 Paste in text and it will tell you info about the individual characters
 <p align="center">
 <img width="885" alt="image" src="https://github.com/user-attachments/assets/53eb55a9-7ca0-4941-9b47-8a27d23b4be2" />
