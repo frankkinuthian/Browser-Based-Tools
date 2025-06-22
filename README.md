@@ -1,6 +1,10 @@
 # Thio's Browser-Based Tools
 Various utilities and tools that run locally right in your browser
 
+### How to Download
+<p align="center"><img width="500" alt="image" src="https://github.com/user-attachments/assets/a2f8c398-664d-4b89-81e8-d5ffc9e8d472" /></p>
+
+
 ## [Unicode Inspector](Tools/Unicode%20Inspector)
 Paste in text and it will tell you info about the individual characters
 <p align="center">
