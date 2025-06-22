@@ -20,14 +20,14 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      # --- Step 1: Check out the 'main' branch ---
+      # --- Check out the 'main' branch ---
       # This downloads your main branch code into the workflow runner.
       - name: Checkout main branch
         uses: actions/checkout@v4
         with:
           path: main # Checkout to a 'main' subdirectory
 
-      # --- Step 2: Check out the 'caches' branch ---
+      # --- Check out the 'caches' branch ---
       # This downloads your caches branch into a different subdirectory.
       # This step will fail if the 'caches' branch doesn't exist yet, which is fine on the first run.
       - name: Checkout caches branch
@@ -37,7 +37,7 @@ jobs:
           path: caches # Checkout to a 'caches' subdirectory
         continue-on-error: true
 
-      # --- Step 3: Combine the files ---
+      # --- Combine the files ---
       - name: Combine files
         run: |
           # Create a 'public' directory to hold the final website files
@@ -50,14 +50,26 @@ jobs:
           if [ -d "./caches" ]; then
             cp -r ./caches/* ./public/
           fi
+
+      # --- Install Pandoc ---
+      - name: Install pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+
+       # --- Convert README.md to index.html ---
+      - name: Convert README to index.html
+        run: |
+          pandoc --standalone --metadata pagetitle="Home" -M linkcolor="#007bff" -M mainfont="sans-serif" -M maxwidth="45em" -f gfm -t html ./public/README.md -o ./public/index.html
+
           
-      # --- Step 4: Upload the combined site ---
+      # --- Upload the combined site ---
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
-      # --- Step 5: Deploy to GitHub Pages ---
+      # --- Deploy to GitHub Pages ---
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
