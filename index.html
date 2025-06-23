@@ -1,0 +1,77 @@
+<!--
+Changelog:
+- Improved mobile responsiveness
+- Moved all styles to external style.css for maintainability (see style.css)
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frank's Browser-Based Tools</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Frank's Browser-Based Tools</h1>
+      <p>Various utilities and tools that run locally right in your browser.</p>
+    </header>
+    <div class="container">
+      <input
+        class="search-bar"
+        type="text"
+        id="searchInput"
+        placeholder="Search tools..."
+        onkeyup="filterTools()"
+      />
+      <div class="tool-list" id="toolList">
+        <div class="tool" data-title="Unicode Inspector">
+          <div class="tool-title">Unicode Inspector</div>
+          <div class="tool-desc">
+            Paste in text and it will tell you info about the individual
+            characters.
+          </div>
+          <a
+            class="tool-link"
+            href="Tools/Unicode Inspector/Unicode Inspector.html"
+            >Open Unicode Inspector</a
+          >
+        </div>
+        <div class="tool" data-title="Repo Explorer">
+          <div class="tool-title">Repo Explorer</div>
+          <div class="tool-desc">
+            Fetch all the repositories for a particular user/organization, with
+            the ability to sort and filter them.
+          </div>
+          <a class="tool-link" href="Tools/GitHub Tools/Repo Explorer.html"
+            >Open Repo Explorer</a
+          >
+        </div>
+        <div class="tool" data-title="Associated Organization Research Tool">
+          <div class="tool-title">Associated Organization Research Tool</div>
+          <div class="tool-desc">
+            Find and verify authenticity of GitHub accounts owned by large
+            companies who don't list all their official accounts anywhere.
+          </div>
+          <a
+            class="tool-link"
+            href="Tools/GitHub Tools/Associated Organization Research Tool.html"
+            >Open Associated Organization Research Tool</a
+          >
+        </div>
+      </div>
+    </div>
+    <script>
+      function filterTools() {
+        const input = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const tools = document.querySelectorAll(".tool");
+        tools.forEach((tool) => {
+          const title = tool.getAttribute("data-title").toLowerCase();
+          tool.style.display = title.includes(input) ? "" : "none";
+        });
+      }
+    </script>
+  </body>
+</html>
