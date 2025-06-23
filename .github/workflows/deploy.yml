@@ -38,18 +38,17 @@ jobs:
         continue-on-error: true
 
       # --- Combine the files ---
-      # Fix workflow failure
       - name: Combine files
-              run: |
-                mkdir -p public
-                cp -r ./main/* ./public/
-                if [ -d "./caches" ]; then
-                  shopt -s nullglob
-                  files=(./caches/*)
-                  if [ ${#files[@]} -gt 0 ]; then
-                    cp -r ./caches/* ./public/
-                  fi
-                fi
+        run: |
+          mkdir -p public
+          cp -r ./main/* ./public/
+          if [ -d "./caches" ]; then
+            shopt -s nullglob
+            files=(./caches/*)
+            if [ ${#files[@]} -gt 0 ]; then
+              cp -r ./caches/* ./public/
+            fi
+          fi
 
       # --- Install Pandoc ---
       - name: Install pandoc
@@ -72,17 +71,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-
-      # Fix workflow failure
-      - name: Combine files
-              run: |
-                mkdir -p public
-                cp -r ./main/* ./public/
-                if [ -d "./caches" ]; then
-                  shopt -s nullglob
-                  files=(./caches/*)
-                  if [ ${#files[@]} -gt 0 ]; then
-                    cp -r ./caches/* ./public/
-                  fi
-                fi
