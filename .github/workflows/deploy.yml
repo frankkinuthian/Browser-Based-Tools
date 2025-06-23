@@ -38,18 +38,18 @@ jobs:
         continue-on-error: true
 
       # --- Combine the files ---
+      # Fix workflow failure
       - name: Combine files
-        run: |
-          # Create a 'public' directory to hold the final website files
-          mkdir -p public
-
-          # Copy everything from the 'main' branch checkout, IGNORING dotfiles
-          cp -r ./main/* ./public/
-
-          # If the caches directory exists, copy its contents, IGNORING dotfiles
-          if [ -d "./caches" ]; then
-            cp -r ./caches/* ./public/
-          fi
+              run: |
+                mkdir -p public
+                cp -r ./main/* ./public/
+                if [ -d "./caches" ]; then
+                  shopt -s nullglob
+                  files=(./caches/*)
+                  if [ ${#files[@]} -gt 0 ]; then
+                    cp -r ./caches/* ./public/
+                  fi
+                fi
 
       # --- Install Pandoc ---
       - name: Install pandoc
