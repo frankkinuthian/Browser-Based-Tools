@@ -12,6 +12,11 @@
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#343a40">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512.png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         body {
@@ -322,16 +327,17 @@
         </button>
         <div class="text-gray-800 dark:text-gray-200">
             <h3 class="text-2xl font-bold mb-4">What is This Tool For?</h3>
-            <p class="mb-4">Large companies often have many official GitHub organizations (aka accounts) that aren't centrally listed anywhere, nor have they verified their association with the parent company’s domain. This tool helps you discover and validate these scattered accounts yourself, by finding hidden connections between them, making it easier to see a company's full open-source footprint.</p>
+            <p class="mb-4">Large companies often have many official GitHub organizations (aka accounts) that aren't centrally listed anywhere, nor have they verified their association with the parent company's domain. This tool helps you discover and validate these scattered accounts yourself, by finding hidden connections between them, making it easier to see a company's full open-source footprint.</p>
 
             <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md my-4 dark:bg-red-900/30 dark:text-red-300">
-                <p><strong class="font-bold">IMPORTANT:</strong> This is NOT a magic, fully automatic tool. It’s meant to make it easier to MANUALLY find and verify authenticity of accounts that may have a company’s name in it. The list of search results is NOT meant to be a list of associated accounts.</p>
+                <p><strong class="font-bold">IMPORTANT:</strong> This is NOT a magic, fully automatic tool. It's meant to make it easier to MANUALLY find and verify authenticity of accounts that may have a company's name in it. The list of search results is NOT meant to be a list of associated accounts.</p>
             </div>
 
             <h3 class="text-2xl font-bold mb-4">How It Works</h3>
             <p class="mb-4">This tool helps you find relationships between GitHub organizations using the following concepts:</p>
             <ul class="list-disc list-inside space-y-3 mb-4">
                 <li><strong class="font-semibold">Parent Organization:</strong> This is basically the anchor point: A known, official account for the company you are researching (e.g., <code class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 text-sm">microsoft</code>). You provide this as a starting point for comparison.</li>
+                <li><strong class="font-semibold">Search Term:</strong> The tool will do a GitHub search for accounts that simply contain this text. This assumes that most accounts associated with a company contain that company's name.</li>
                 <li><strong class="font-semibold">Search Term:</strong> The tool will do a GitHub search for accounts that simply contain this text. This assumes that most accounts associated with a company contain that company’s name.</li>
                 <li><strong class="font-semibold">Shared Members - Parent:</strong> A search result organization is marked as sharing members with the <strong>Parent</strong> if it has at least one “member” in common with the main parent organization you specified. Members must be invited by the organization and typically only includes employees and such. This could be a strong indicator of an official relationship.</li>
                 <li>

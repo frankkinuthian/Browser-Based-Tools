@@ -1,0 +1,21 @@
+{
+  "name": "Frank's Browser-Based Tools",
+  "short_name": "Browser Tools",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#181a1b",
+  "theme_color": "#343a40",
+  "description": "A collection of browser-based utilities and tools.",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

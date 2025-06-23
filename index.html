@@ -5,6 +5,7 @@ Changelog:
 - Added dark mode toggle button in header
 - Dark mode uses .dark-mode class and CSS variables (see style.css)
 - User preference is saved in localStorage and applied on page load
+- Added PWA manifest.json link and theme-color meta tags
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +14,20 @@ Changelog:
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Frank's Browser-Based Tools</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#343a40" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="icons/icon-192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="icons/icon-512.png"
+    />
   </head>
   <body>
     <header>
@@ -106,6 +121,13 @@ Changelog:
         tools.forEach((tool) => {
           const title = tool.getAttribute("data-title").toLowerCase();
           tool.style.display = title.includes(input) ? "" : "none";
+        });
+      }
+
+      // Register service worker for PWA
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("service-worker.js");
         });
       }
     </script>
