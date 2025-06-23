@@ -2,26 +2,61 @@
 style.css for Frank's Browser-Based Tools Dashboard
 - Contains all styles for index.html
 - Mobile responsiveness and touch usability improved
+- Dark mode support with .dark-mode class and CSS variables
 - Last updated: [today's date]
 */
+:root {
+  --bg-color: #f8f9fa;
+  --header-bg: #343a40;
+  --header-color: #fff;
+  --container-bg: #fff;
+  --container-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  --tool-bg: #fafbfc;
+  --tool-border: #e0e0e0;
+  --tool-title: #222;
+  --tool-desc: #555;
+  --link-color: #007bff;
+  --link-bg: #e9f2ff;
+  --link-hover-bg: #d0e7ff;
+  --input-bg: #fff;
+  --input-border: #ccc;
+  --input-color: #222;
+}
+.dark-mode {
+  --bg-color: #181a1b;
+  --header-bg: #23272a;
+  --header-color: #f8f9fa;
+  --container-bg: #23272a;
+  --container-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --tool-bg: #23272a;
+  --tool-border: #444;
+  --tool-title: #f8f9fa;
+  --tool-desc: #bbb;
+  --link-color: #66aaff;
+  --link-bg: #232f3e;
+  --link-hover-bg: #1a2330;
+  --input-bg: #23272a;
+  --input-border: #444;
+  --input-color: #f8f9fa;
+}
 body {
   font-family: Arial, sans-serif;
-  background: #f8f9fa;
+  background: var(--bg-color);
   margin: 0;
   padding: 0;
 }
 header {
-  background: #343a40;
-  color: #fff;
+  background: var(--header-bg);
+  color: var(--header-color);
   padding: 1rem 2rem;
   text-align: center;
 }
 .container {
   max-width: 900px;
   margin: 2rem auto;
-  background: #fff;
+  background: var(--container-bg);
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  box-shadow: var(--container-shadow);
   padding: 2rem;
 }
 h1 {
@@ -32,9 +67,11 @@ h1 {
   padding: 0.75rem;
   margin-bottom: 2rem;
   font-size: 1.1rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--input-border);
   border-radius: 4px;
   box-sizing: border-box;
+  background: var(--input-bg);
+  color: var(--input-color);
 }
 .tool-list {
   display: flex;
@@ -42,10 +79,10 @@ h1 {
   gap: 1.5rem;
 }
 .tool {
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--tool-border);
   border-radius: 6px;
   padding: 1.2rem;
-  background: #fafbfc;
+  background: var(--tool-bg);
   transition: box-shadow 0.2s;
 }
 .tool:hover {
@@ -55,26 +92,27 @@ h1 {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 0.3rem;
+  color: var(--tool-title);
 }
 .tool-desc {
   margin-bottom: 0.5rem;
-  color: #555;
+  color: var(--tool-desc);
 }
 .tool-link {
-  color: #007bff;
+  color: var(--link-color);
   text-decoration: none;
   font-weight: bold;
   display: inline-block;
   padding: 0.6em 1.2em;
   border-radius: 4px;
-  background: #e9f2ff;
+  background: var(--link-bg);
   margin-top: 0.5em;
   font-size: 1rem;
 }
 .tool-link:hover,
 .tool-link:focus {
   text-decoration: underline;
-  background: #d0e7ff;
+  background: var(--link-hover-bg);
 }
 @media (max-width: 600px) {
   .container {
