@@ -11,7 +11,6 @@ This repository uses a professional Kanban workflow managed via **GitHub Project
   - Review
   - Done
 - Move issues across columns as work progresses.
-- Link Pull Requests to Issues (e.g., `Closes #12`) to automate board updates.
 
 ## Issue Templates
 
