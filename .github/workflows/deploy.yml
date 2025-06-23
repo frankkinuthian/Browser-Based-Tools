@@ -42,10 +42,10 @@ jobs:
         run: |
           # Create a 'public' directory to hold the final website files
           mkdir -p public
-          
+
           # Copy everything from the 'main' branch checkout, IGNORING dotfiles
           cp -r ./main/* ./public/
-          
+
           # If the caches directory exists, copy its contents, IGNORING dotfiles
           if [ -d "./caches" ]; then
             cp -r ./caches/* ./public/
@@ -57,12 +57,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y pandoc
 
-       # --- Convert README.md to index.html ---
-      - name: Convert README to index.html
-        run: |
-          pandoc --standalone --metadata pagetitle="Home" -M linkcolor="#007bff" -M mainfont="sans-serif" -M maxwidth="45em" -f gfm -t html ./public/README.md -o ./public/index.html
+        # --- Convert README.md to index.html (DISABLED: use custom dashboard instead) ---
+      # - name: Convert README to index.html
+      #   run: |
+      #     pandoc --standalone --metadata pagetitle="Home" -M linkcolor="#007bff" -M mainfont="sans-serif" -M maxwidth="45em" -f gfm -t html ./public/README.md -o ./public/index.html
 
-          
       # --- Upload the combined site ---
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
